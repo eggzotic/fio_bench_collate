@@ -63,7 +63,6 @@ def process_file(file: str):
             summary[thruput_kbps][io_type] += io_data[thruput_kbps]
             summary[latency][io_type] += io_data[latency]["mean"]
     print(f"Total jobs processed: {len(jobs)}", file=sys.stderr)
-    # print(f"IO Type,Average Thruput (KB/s),Average Latency (ms)")
     for io_type in io_types:
         # convert from ns to ms, and average across all jobs
         summary[latency][io_type] /= (len(jobs) * 1000)
